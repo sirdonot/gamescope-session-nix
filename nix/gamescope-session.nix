@@ -43,10 +43,6 @@ pkgs.writeTextFile {
 
     ## Session globals
 
-    # Fix intel color corruption
-    # might come with some performance degradation but is better than a corrupted
-    # color image
-    export INTEL_DEBUG=norbc
     export mesa_glthread=true
 
     export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
@@ -157,9 +153,6 @@ pkgs.writeTextFile {
     # Scaling support
     export STEAM_GAMESCOPE_FANCY_SCALING_SUPPORT=1
 
-    # Fix issues with steam color filters on gamescope
-    export GAMESCOPE_FORCE_COMPOSITE=1
-
     # Color management support
     export STEAM_GAMESCOPE_COLOR_MANAGED=1
     export STEAM_GAMESCOPE_VIRTUAL_WHITE=1
@@ -244,7 +237,7 @@ pkgs.writeTextFile {
     fi
 
     # Export steam with the correct flags
-    export CLIENTCMD="steam -gamepadui -steamos3 -steampal -steamdeck"
+    export CLIENTCMD="steam -gamepadui -steamos3 -steampal -steamdeck -dev"
 
     GAMESCOPECMD="${pkgs.gamescope}/bin/gamescope \
       --generate-drm-mode "''${DRM_MODE:-fixed}" \
